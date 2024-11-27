@@ -7,7 +7,7 @@ using AutomationSamples.Shared.Models;
 using Microsoft.Extensions.Options;
 using System.Collections;
 using System.Text;
-using System.Text.Json;
+// using System.Text.Json;
 
 namespace AutomationSamples.Shared.Services;
 
@@ -15,7 +15,7 @@ public class ReportService : IReportService
 {
     private readonly IReportGenerator reportGenerator;
     private readonly ReportOptions reportOptions;
-    private readonly JsonSerializerOptions jsonSerializerOptions;
+    // private readonly JsonSerializerOptions jsonSerializerOptions;
 
     public ReportService(
         IReportGenerator reportGenerator,
@@ -26,10 +26,10 @@ public class ReportService : IReportService
         this.reportOptions = reportOptions.Value ??
             throw new ArgumentNullException(nameof(reportOptions));
 
-        jsonSerializerOptions = new JsonSerializerOptions
-        {
-            WriteIndented = true,
-        };
+        // jsonSerializerOptions = new JsonSerializerOptions
+        // {
+        //     WriteIndented = true,
+        // };
     }
 
     public string GenerateReportData()
@@ -55,7 +55,8 @@ public class ReportService : IReportService
 
         };
 
-        return JsonSerializer.Serialize(records, jsonSerializerOptions);
+        // return JsonSerializer.Serialize(records, jsonSerializerOptions);
+        return records.ToString();
     }
 
     public string GenerateReportDisclaimer() => GenerateSectionText(reportOptions.Disclaimer ?? "End of Report");

@@ -3,9 +3,9 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
-using AutomationSamples.Shared.Services;
+// using AutomationSamples.Shared.Services;
 using BlazorFocused.Automation.PowerShell;
-using Microsoft.Extensions.Logging;
+// using Microsoft.Extensions.Logging;
 using System.Management.Automation;
 
 namespace PowerShellSample;
@@ -17,23 +17,23 @@ public class WriteReportCmdlet : AutomationShell<Startup>
     [Parameter(Mandatory = false, HelpMessage = "Header showing on report")]
     public string Header { get; set; } = "Header not set";
 
-    [AutomationDependency]
-    protected IReportService ReportService { get; set; }
+    // [AutomationDependency]
+    // protected IReportService ReportService { get; set; }
 
-    [AutomationDependency]
-    private readonly ILogger<WriteReportCmdlet> logger = default;
+    // [AutomationDependency]
+    // private readonly ILogger<WriteReportCmdlet> logger = default;
 
     protected override void ProcessRecord()
     {
         base.ProcessRecord();
 
-        logger.LogInformation("Beginning Report Processing");
+        // logger.LogInformation("Beginning Report Processing");
 
         List<string> reportDetails = new()
         {
-            ReportService.GenerateReportHeader(Header),
-            ReportService.GenerateReportData(),
-            ReportService.GenerateReportDisclaimer()
+            // ReportService.GenerateReportHeader(Header),
+            // ReportService.GenerateReportData(),
+            // ReportService.GenerateReportDisclaimer()
         };
 
         foreach (string reportDetail in reportDetails)

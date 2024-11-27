@@ -1,13 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
+    <!--<PackageReference Include="System.Text.Json" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PowerShellSample.psd1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\PowerShell\PowerShell\src\BlazorFocused.Automation.PowerShell.csproj" />
-    <ProjectReference Include="..\Shared\AutomationSamples.Shared.csproj" />
+    <!-- <ProjectReference Include="..\Shared\AutomationSamples.Shared.csproj" /> -->
   </ItemGroup>
 
 </Project>

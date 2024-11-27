@@ -3,8 +3,8 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
-using AutomationSamples.Shared.Models;
-using AutomationSamples.Shared.Services;
+// using AutomationSamples.Shared.Models;
+// using AutomationSamples.Shared.Services;
 using BlazorFocused.Automation.Runtime;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,12 +26,12 @@ public class Startup : AutomationStartup
 
     public override void ConfigureServices(HostBuilderContext hostBuilderContext, IServiceCollection services)
     {
-        services.AddScoped<IReportService, ReportService>();
-        services.AddScoped<IReportGenerator, ReportGenerator>();
+        // services.AddScoped<IReportService, ReportService>();
+        // services.AddScoped<IReportGenerator, ReportGenerator>();
 
-        services
-            .AddOptions<ReportOptions>()
-            .BindConfiguration(nameof(ReportOptions));
+        // services
+        //     .AddOptions<ReportOptions>()
+        //     .BindConfiguration(nameof(ReportOptions));
     }
 
     public override IDictionary<string, string> GenerateParameterConfigurationMapping() =>
