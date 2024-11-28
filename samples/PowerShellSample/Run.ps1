@@ -27,11 +27,11 @@ catch {
 }
 finally {
     Write-Host "Removing Module" -ForegroundColor Cyan
-    # Remove-Module -Name $moduleManifestPath -ErrorAction SilentlyContinue
+    Remove-Module -Name $moduleManifestPath -ErrorAction SilentlyContinue
 
     Write-Host "Releasing DLL" -ForegroundColor Cyan
     if (Test-Path $dllPath) {
-        # Remove-Item -Path $dllPath -Force
+        Remove-Item -Path $dllPath -Force
         Write-Host "DLL Released" -ForegroundColor Green
     }
     else {
