@@ -14,25 +14,24 @@ dotnet clean --configuration $buildConfiguration --runtime $runtime
 Write-Host "Restoring Dependencies" -ForegroundColor Cyan
 dotnet restore
 
-Write-Host "Building Project" -ForegroundColor Cyan
+Write-Host "Building Project 2" -ForegroundColor Cyan
 dotnet publish --configuration $buildConfiguration --runtime $runtime --self-contained false
 
 try {
     Import-Module -Name $moduleManifestPath -Verbose -Force
 
-    [AppDomain]::CurrentDomain.GetAssemblies() | Where-Object { $_.FullName -match 'System.Text.Json' }
-    Write-Report -h "This is a test" -Verbose
+    Write-Report -h "This is a test 2" -Verbose
 }
 catch {
     Write-Error "Error. Exception: $_"
 }
 finally {
     Write-Host "Removing Module" -ForegroundColor Cyan
-    Remove-Module -Name $moduleManifestPath -ErrorAction SilentlyContinue
+    # Remove-Module -Name $moduleManifestPath -ErrorAction SilentlyContinue
 
     Write-Host "Releasing DLL" -ForegroundColor Cyan
     if (Test-Path $dllPath) {
-        Remove-Item -Path $dllPath -Force
+        # Remove-Item -Path $dllPath -Force
         Write-Host "DLL Released" -ForegroundColor Green
     }
     else {
@@ -40,4 +39,4 @@ finally {
     }
 }
 
-write-host "Script Complete" -ForegroundColor Green
+write-Host "Script Complete" -ForegroundColor Green
