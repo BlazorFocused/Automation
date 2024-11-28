@@ -20,7 +20,7 @@ dotnet publish --configuration $buildConfiguration --runtime $runtime --self-con
 try {
     Import-Module -Name $moduleManifestPath -Verbose -Force
 
-    Write-Report -h "This is a test 2" -Verbose
+    Write-Report -h "This is a test" -Verbose
 }
 catch {
     Write-Error "Error. Exception: $_"

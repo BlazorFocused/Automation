@@ -28,7 +28,7 @@ public class WriteReportCmdlet : AutomationShell<Startup>
         base.ProcessRecord();
 
         logger.LogInformation("Beginning Report Processing");
-        WriteVerbose("Verbose: Made it to the playoffs");
+
         List<string> reportDetails = new()
         {
             ReportService.GenerateReportHeader(Header),
